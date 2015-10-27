@@ -1,0 +1,44 @@
+class EnemySpawn : ZilchComponent
+{
+    var Time: Real = 0;
+    var EnemyAmmount: Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var randNumGen = new Random();
+        var randNum = randNumGen.DieRoll(4);
+        var spawnPosition = Real3(0,0,0);
+        this.Time += 1;
+        
+        if(randNum == 1)
+        {
+            spawnPosition = Real3(0,40,1);
+        }
+        else if(randNum == 2)
+        {
+            spawnPosition = Real3(0,-50,1);
+        }
+        else if(randNum == 3)
+        {
+            spawnPosition = Real3(60,0,1);
+        }
+        else if(randNum == 4)
+        {
+            spawnPosition = Real3(-60,0,1);
+        }
+        if(this.Time == 50)
+        {
+        if(this. EnemyAmmount <= 40)
+        {
+            var archetypeToSpawn = Archetype.Find("RedNeck");
+            var createdEnemy = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
+            this.EnemyAmmount += 1;
+            this.Time = 0;
+        }
+    }
+    }
+}

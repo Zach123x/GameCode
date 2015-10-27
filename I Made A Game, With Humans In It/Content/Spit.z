@@ -1,0 +1,31 @@
+class Spit : ZilchComponent
+{
+    var Time: Real = 0;
+    var Player : Cog = null;
+    var Speed : Real = 35;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+    }
+    
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Space)
+        {
+            var screenPosition = Zero.Mouse.ScreenPosition;
+            var mousePosition = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPosition, 0.0);
+            var spawnPosition = this.Owner.Transform.Translation;
+            var spawnDirection = mousePosition - this.Owner.Transform.Translation;
+            spawnDirection = Math.Normalize(spawnDirection);
+            spawnPosition.Z += 5;
+            var archetypeToSpawn = Archetype.Spit;
+            var createdObject = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
+            createdObject.RigidBody.Velocity = spawnDirection * this.Speed;
+        }
+    }
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+    }
+}

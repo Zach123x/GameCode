@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TogTurret",
+		uint64 ResourceId = 560ad80914dfff65,
+	},
+},

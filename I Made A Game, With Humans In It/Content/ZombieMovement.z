@@ -1,0 +1,66 @@
+class ZombieMovement : ZilchComponent
+{
+    // Variables trakcing player state
+    // Movement
+    var MoveLeft : Boolean = false;
+    var MoveRight: Boolean = false;
+    var MoveForward: Boolean = false;
+    var MoveBack: Boolean = false;
+    var MoveSpeed: Real    = 14.0;
+
+    [Dependency]
+    var Transform: Transform = null;
+
+    function Initialize(init : CogInitializer)
+    {
+        // We will update the player every logic update
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // Get all input from the Player Here
+        this.UpdatePlayerInput();
+        // Apply Logic for player movement
+        this.ApplyMovement(event);
+    }
+
+    function UpdatePlayerInput()
+    {
+        // Set flags marking player movement
+        this.MoveLeft  = Zero.Keyboard.KeyIsDown(Keys.A);
+        this.MoveRight = Zero.Keyboard.KeyIsDown(Keys.D);
+        this.MoveForward = Zero.Keyboard.KeyIsDown(Keys.W);
+        this.MoveBack = Zero.Keyboard.KeyIsDown(Keys.S);
+    }
+
+    function ApplyMovement(event: UpdateEvent)
+    {
+        var moveDirection = Real3(0.0, 0.0, 0.0);
+
+        // Apply movement based on player input
+          if (this.MoveBack)
+        {
+            moveDirection += Real3(0.0, -1.0, 0.0);
+        }
+         if (this.MoveForward)
+        {
+            moveDirection += Real3(0.0, 1.0, 0.0);
+        }
+        if (this.MoveLeft)
+        {
+            moveDirection += Real3(-1.0, 0.0, 0.0);
+        }
+        if (this.MoveRight)
+        {
+            moveDirection += Real3(1.0, 0.0, 0.0);
+        }
+
+        // Only want the direction, do not want it to affect speed.
+        moveDirection = Math.Normalize(moveDirection);
+
+        // Apply Movement
+        this.Owner.Transform.Translation += moveDirection * event.Dt * this.MoveSpeed;
+
+    }
+}

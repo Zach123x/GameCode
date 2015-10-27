@@ -1,0 +1,12 @@
+class TogHealth : ZilchComponent
+{
+    [Property]var TogHealth : Real = 105;
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

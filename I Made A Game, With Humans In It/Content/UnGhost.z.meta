@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "UnGhost",
+		uint64 ResourceId = 563eec9f11635514,
+	},
+},

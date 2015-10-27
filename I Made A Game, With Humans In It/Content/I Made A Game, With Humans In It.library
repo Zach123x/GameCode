@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "I Made A Game, With Humans In It",
+	uint64 LibraryId = 561d58e5796901ad,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

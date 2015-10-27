@@ -1,0 +1,28 @@
+class RedneckMelee : ZilchComponent
+{
+    var Time: Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event: UpdateEvent)
+    {
+        this.Time += 1;
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+            if(this.Time == 2)
+        {
+            var playerHeath = this.Space.FindObjectByName("Player").Health.Health;
+            playerHeath -= 1;
+            this.Time = 0;
+        }
+        }
+    }
+}
