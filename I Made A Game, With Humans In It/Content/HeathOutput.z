@@ -1,0 +1,20 @@
+class HeathOutput : ZilchComponent
+{
+    var PlayerHealth: Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event:CollisionEvent)
+    {
+        
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.PlayerHealth = this.Space.FindObjectByName("Player").Health.Health;
+        this.Owner.SpriteText.Text = "Player Health: `this.PlayerHealth`";
+    }
+}

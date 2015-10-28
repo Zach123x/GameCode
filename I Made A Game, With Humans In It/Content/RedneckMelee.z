@@ -10,6 +10,10 @@ class RedneckMelee : ZilchComponent
     function OnLogicUpdate(event: UpdateEvent)
     {
         this.Time += 1;
+        if(this.Time == 20)
+        {
+            Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        }
     }
     
     function OnCollisionStarted(event : CollisionEvent)
@@ -17,10 +21,9 @@ class RedneckMelee : ZilchComponent
         var otherObject = event.OtherObject;
         if(otherObject.Name == "Player")
         {
-            if(this.Time == 2)
+        if(this.Time >= 20)
         {
-            var playerHeath = this.Space.FindObjectByName("Player").Health.Health;
-            playerHeath -= 1;
+            this.Space.FindObjectByName("Player").Health.Health -= 5;
             this.Time = 0;
         }
         }

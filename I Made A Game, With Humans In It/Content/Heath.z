@@ -1,7 +1,6 @@
 class Health : ZilchComponent
 {
-    [Property]var Health : Real = 10;
-    var HeathOutput: Cog = null;
+    [Property]var Health : Real = 100;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -9,10 +8,9 @@ class Health : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
-        if(this.Health == 0)
+        if(this.Space.FindObjectByName("Player").Health.Health <= 0)
         {
-            this.Space.ReloadLevel;
+            this.Space.ReloadLevel();
         }
     }
 }

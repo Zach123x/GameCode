@@ -202,7 +202,7 @@ Level =
 		},
 		Health = 
 		{
-			float Health = 10,
+			float Health = 100,
 		},
 		MultiConvexMeshCollider = 
 		{
@@ -2643,6 +2643,9 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		HeathOutput = 
+		{
 		},
 	},
 },

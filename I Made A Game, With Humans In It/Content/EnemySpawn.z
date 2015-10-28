@@ -39,6 +39,10 @@ class EnemySpawn : ZilchComponent
             this.EnemyAmmount += 1;
             this.Time = 0;
         }
+            if(this.Space.FindObjectByName("Enemy").Health.Health <= 0)
+        {
+            this.Space.FindObjectByName("Enemy").Destroy();
+        }
     }
     }
 }

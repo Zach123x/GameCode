@@ -27,5 +27,9 @@ class Spit : ZilchComponent
     function OnCollisionStarted(event : CollisionEvent)
     {
         var otherObject = event.OtherObject;
+        if(otherObject.Name == "Created Enemy")
+        {
+            this.Space.FindObjectByName("Enemy").Health.Health -= 5;
+        }
     }
 }
