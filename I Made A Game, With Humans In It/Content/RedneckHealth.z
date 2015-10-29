@@ -1,6 +1,7 @@
-class Health : ZilchComponent
+class RedneckHealth : ZilchComponent
 {
-    [Property]var Health : Real = 100;
+    [Property] 
+    var Health: Real = 50;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -8,9 +9,9 @@ class Health : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Owner.Health.Health == 0)
+        if(this.Owner.RedneckHealth.Health <= 0)
         {
-            this.Space.ReloadLevel();
+            this.Owner.Destroy();
         }
     }
 }

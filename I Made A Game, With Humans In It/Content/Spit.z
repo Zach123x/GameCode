@@ -16,20 +16,22 @@ class Spit : ZilchComponent
             var screenPosition = Zero.Mouse.ScreenPosition;
             var mousePosition = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPosition, 0.0);
             var spawnPosition = this.Owner.Transform.Translation;
-            var spawnDirection = mousePosition - this.Owner.Transform.Translation;
+            var spawnDirection = mousePosition - this.Space.FindObjectByName("Player").Transform.Translation;
             spawnDirection = Math.Normalize(spawnDirection);
-            spawnPosition.Z += 5;
+            spawnPosition.Z = 1;
             var archetypeToSpawn = Archetype.Spit;
             var createdObject = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
             createdObject.RigidBody.Velocity = spawnDirection * this.Speed;
         }
     }
-    function OnCollisionStarted(event : CollisionEvent)
+    function OnCollisionStarted(event: CollisionEvent)
     {
         var otherObject = event.OtherObject;
-        if(otherObject.Name == "Created Enemy")
+        if(otherObject.Name == "Enemy")
         {
-            this.Space.FindObjectByName("Enemy").Health.Health -= 5;
+            var enemy = this.Space.FindObjectByName("Enemy");
+            enemy.RedneckHealth.Health -= 10;
+            this.Owner.Destroy();
         }
     }
 }

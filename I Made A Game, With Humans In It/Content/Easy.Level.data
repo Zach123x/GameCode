@@ -151,7 +151,7 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [0.383715332, -1.19006205, 0],
-			Vec3 Scale = [2, 2, 2],
+			Vec3 Scale = [2, 2, 5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -197,13 +197,6 @@ Level =
 		ZombieMovement = 
 		{
 		},
-		Spit = 
-		{
-		},
-		Health = 
-		{
-			float Health = 100,
-		},
 		MultiConvexMeshCollider = 
 		{
 			bool Ghost = false,
@@ -213,6 +206,13 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			string MeshName = "563054152b16e5d9:Zombie",
+		},
+		Spit = 
+		{
+		},
+		Health = 
+		{
+			float Health = 100,
 		},
 		Hierarchy = 
 		{
