@@ -14,6 +14,7 @@ class HeathOutput : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
+        Console.WriteLine(this.PlayerHealth);
         this.PlayerHealth = this.Space.FindObjectByName("Player").Health.Health;
         this.Owner.SpriteText.Text = "Player Health: `this.PlayerHealth`";
     }

@@ -1,7 +1,7 @@
 class Spit : ZilchComponent
 {
     var Time: Real = 0;
-    var Player : Cog = null;
+    var Spit : Cog = null;
     var Speed : Real = 35;
     function Initialize(init : CogInitializer)
     {
@@ -27,11 +27,20 @@ class Spit : ZilchComponent
     function OnCollisionStarted(event: CollisionEvent)
     {
         var otherObject = event.OtherObject;
+        this.Spit = this.Space.FindObjectByName("Spit");
+        if(otherObject.Name == "Player")
+        {
+            this.Spit.MultiConvexMeshCollider.Ghost = true;
+        }
+        else
+        {
+            this.Spit.MultiConvexMeshCollider.Ghost = false;
+        }
         if(otherObject.Name == "Enemy")
         {
             var enemy = this.Space.FindObjectByName("Enemy");
-            enemy.RedneckHealth.Health -= 10;
-            this.Owner.Destroy();
+            enemy.RedneckHealth.EnemyHealth;
+            This.Spit.Destroy();
         }
     }
 }

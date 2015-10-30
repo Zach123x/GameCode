@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [5, 5, 1],
+		Vec3 Scale = [5, 5, 5],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -35,16 +35,6 @@ Cog =
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
-	},
-	SphereCollider = 
-	{
-		bool Ghost = true,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [-0.0199999996, 0, 0],
-		float Radius = 0.300000012,
 	},
 	RigidBody = 
 	{
@@ -96,5 +86,16 @@ Cog =
 	},
 	RedneckHealth = 
 	{
+		float EnemyHealth = 50,
+	},
+	MultiConvexMeshCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		string MeshName = "562475878da6061f:RedNeck",
 	},
 },

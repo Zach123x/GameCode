@@ -8,7 +8,7 @@ class UnGhost : ZilchComponent
 
     function OnLogicUpdate(event: UpdateEvent)
     {
-        Console.WriteLine(this.Owner.SphereCollider.Ghost);
+        //Console.WriteLine(this.Owner.SphereCollider.Ghost);
     }
     
     function OnCollisionStarted(event : CollisionEvent)
@@ -16,7 +16,7 @@ class UnGhost : ZilchComponent
         var otherObject = event.OtherObject;
         if(otherObject.Name == "UnGhost")
         {
-            this.Owner.SphereCollider.Ghost = false;
+            this.Owner.MultiConvexMeshCollider.Ghost = false;
         }
     }
 }

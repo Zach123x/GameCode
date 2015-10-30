@@ -8,7 +8,7 @@ class Health : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Owner.Health.Health == 0)
+        if(this.Owner.Health.Health <= 0)
         {
             this.Space.ReloadLevel();
         }

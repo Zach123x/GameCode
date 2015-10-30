@@ -9,6 +9,8 @@ class RedNeckLook : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Player = this.Space.FindObjectByName("Player");
+        //Console.WriteLine(this.Player.Health.Health);
         this.Owner.Orientation.LookAtPoint(this.Player.Transform.Translation);
+
     }
 }

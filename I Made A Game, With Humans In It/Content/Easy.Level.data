@@ -106,7 +106,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.383715391, -1.19006205, 50],
+			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -126,7 +126,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.383715391, -1.19006205, 0],
+			Vec3 LookTarget = [0, 0, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -150,7 +150,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.383715332, -1.19006205, 0],
+			Vec3 Translation = [0, 0, 0],
 			Vec3 Scale = [2, 2, 5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -207,12 +207,24 @@ Level =
 			Vec3 Offset = [0, 0, 0],
 			string MeshName = "563054152b16e5d9:Zombie",
 		},
-		Spit = 
+		SoundEmitter = 
 		{
+			float Volume = 1,
+			float Pitch = 0,
+			bool Positional = true,
+			int Version = 1,
+		},
+		SimpleSound = 
+		{
+			bool StartPlaying = false,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
 		},
 		Health = 
 		{
 			float Health = 100,
+		},
+		Spit = 
+		{
 		},
 		Hierarchy = 
 		{
