@@ -2,6 +2,7 @@ class RedneckHealth : ZilchComponent
 {
     [Property] 
     var EnemyHealth: Real = 50;
+    var Score: Integer = 0;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -11,7 +12,8 @@ class RedneckHealth : ZilchComponent
     {
         if(this.Owner.RedneckHealth.EnemyHealth <= 0)
         {
-            
+            this.Owner.Destroy();
+            this.Space.FindObjectByName("Score").Score.Score += 5;
         }
     }
 }

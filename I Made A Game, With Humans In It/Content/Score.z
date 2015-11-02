@@ -1,0 +1,23 @@
+class Score : ZilchComponent
+{
+    [Property]var Score: Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.SpriteText.Text = "Score:`this.Score`";
+        if(this. Score >= 205)
+        {
+            var level2 = Level.Find("Medium");
+            var level1 = Level.Find("Easy");
+            var currentLevelName = this.Space.CurrentLevel;
+            if(currentLevelName == level1)
+            {
+                this.Space.LoadLevel(level2);
+            }
+        }
+    }
+}

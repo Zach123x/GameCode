@@ -1,18 +1,27 @@
 class Spit : ZilchComponent
 {
+    [Property]
+    var SpawnTime: Real = 1;
+    var TimeSinceLastSpawn: Real = 0;
     var Time: Real = 0;
     var Spit : Cog = null;
     var Speed : Real = 35;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
-        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.TimeSinceLastSpawn += event.Dt;
     }
     
     function OnKeyDown(event : KeyboardEvent)
     {
         if(event.Key == Keys.Space)
         {
+            if(this.TimeSinceLastSpawn >= this.SpawnTime)
+            {
             var screenPosition = Zero.Mouse.ScreenPosition;
             var mousePosition = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPosition, 0.0);
             var spawnPosition = this.Owner.Transform.Translation;
@@ -23,24 +32,6 @@ class Spit : ZilchComponent
             var createdObject = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
             createdObject.RigidBody.Velocity = spawnDirection * this.Speed;
         }
-    }
-    function OnCollisionStarted(event: CollisionEvent)
-    {
-        var otherObject = event.OtherObject;
-        this.Spit = this.Space.FindObjectByName("Spit");
-        if(otherObject.Name == "Player")
-        {
-            this.Spit.MultiConvexMeshCollider.Ghost = true;
-        }
-        else
-        {
-            this.Spit.MultiConvexMeshCollider.Ghost = false;
-        }
-        if(otherObject.Name == "Enemy")
-        {
-            var enemy = this.Space.FindObjectByName("Enemy");
-            enemy.RedneckHealth.EnemyHealth;
-            This.Spit.Destroy();
         }
     }
 }

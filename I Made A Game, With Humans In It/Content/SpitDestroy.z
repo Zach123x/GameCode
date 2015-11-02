@@ -1,0 +1,28 @@
+class SpitDestroy : ZilchComponent
+{
+    var Time: Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event:UpdateEvent)
+    {
+        this.Time += event.Dt;
+        if(this.Time == 2)
+        {
+            this.Owner.Destroy();
+            this.Time = 0;
+        }
+    }
+    function OnCollisionStarted(event:CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name != "Player" && otherObject.Name != "Road" && otherObject.Name != "UnGhost" && otherObject.Name != "Health")
+        {
+            this.Owner.Destroy();
+        }
+    }
+    
+}
