@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "Spinmaster",
+		uint64 ResourceId = 562f1c0458303ab1,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 478,
+		uint FrameSizeY = 111,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 239,
+		float OriginY = 55,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},
