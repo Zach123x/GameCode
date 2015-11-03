@@ -216,7 +216,7 @@ Level =
 		},
 		SimpleSound = 
 		{
-			bool StartPlaying = false,
+			bool StartPlaying = true,
 			string CueName = "4e1bd44008b4dc2a:DefaultCue",
 		},
 		Health = 
@@ -225,6 +225,7 @@ Level =
 		},
 		Spit = 
 		{
+			float SpawnTime = 1,
 		},
 		Hierarchy = 
 		{
@@ -2556,8 +2557,8 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.39899236, -3.96806693, 1],
-			Vec3 Scale = [75.302063, 51.1117325, 1],
+			Vec3 Translation = [0.0945423245, -4.3739953, 1],
+			Vec3 Scale = [73.6674347, 48.9904938, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -2695,6 +2696,7 @@ Level =
 		},
 		Score = 
 		{
+			int Score = 0,
 		},
 	},
 },
