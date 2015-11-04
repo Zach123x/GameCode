@@ -1,0 +1,16 @@
+class HoboLook : ZilchComponent
+{
+    var Player: Cog = null;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        //Console.WriteLine(this.Player.Health.Health);
+        this.Owner.Orientation.LookAtPoint(this.Player.Transform.Translation);
+
+    }
+}

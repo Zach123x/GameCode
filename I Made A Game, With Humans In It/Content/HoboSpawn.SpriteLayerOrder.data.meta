@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "HoboSpawn",
+		uint64 ResourceId = 562dd002cc0a9970,
+		string LoaderType = "SpriteLayerOrder",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

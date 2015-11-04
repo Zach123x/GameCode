@@ -1,4 +1,4 @@
-class EnemySpawn : ZilchComponent
+class HoboSpawn : ZilchComponent
 {
     var Time: Real = 0;
     var EnemyAmount: Real = 0;
@@ -33,10 +33,10 @@ class EnemySpawn : ZilchComponent
         }
         if(this.Time == 50)
         {
-        if(this. EnemyAmount <= 40)
+        if(this.Space.FindObjectByName("Road").EnemyAmount.EnemyAmmount >= 39)
         {
-            var archetypeToSpawn = Archetype.Find("RedNeck");
-            var createdEnemy = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
+            var archetypeToSpawn = Archetype.Find("Hobo");
+            this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
             this.Space.FindObjectByName("Road").EnemyAmount.EnemyAmmount += 1;
             this.Time = 0;
         }

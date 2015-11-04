@@ -1,0 +1,35 @@
+class HoboSmash : ZilchComponent
+{
+    var Time: Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event: UpdateEvent)
+    {
+        this.Time += 1;
+        if(this.Time == 20)
+        {
+            Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+        if(this.Time >= 20)
+        {
+            this.Space.FindObjectByName("Player").Health.Health -= 5;
+            this.Time = 0;
+        }
+        }
+        if(otherObject.Name == "Spit")
+        {
+            this.Owner.RedneckHealth.EnemyHealth -= 10;
+        }
+    }
+}
