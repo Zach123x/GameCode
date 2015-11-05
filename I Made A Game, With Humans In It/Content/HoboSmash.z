@@ -29,7 +29,7 @@ class HoboSmash : ZilchComponent
         }
         if(otherObject.Name == "Spit")
         {
-            this.Owner.RedneckHealth.EnemyHealth -= 10;
+            this.Owner.HoboHealth.EnemyHealth -= 10;
         }
     }
 }

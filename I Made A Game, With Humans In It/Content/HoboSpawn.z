@@ -31,15 +31,12 @@ class HoboSpawn : ZilchComponent
         {
             spawnPosition = Real3(-60,0,1);
         }
-        if(this.Time == 50)
-        {
-        if(this.Space.FindObjectByName("Road").EnemyAmount.EnemyAmmount >= 39)
+        if(this.Time >= 50 && this.EnemyAmount >= 39 && this.EnemyAmount <= 150)
         {
             var archetypeToSpawn = Archetype.Find("Hobo");
             this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
             this.Space.FindObjectByName("Road").EnemyAmount.EnemyAmmount += 1;
             this.Time = 0;
         }
-    }
     }
 }

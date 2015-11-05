@@ -15,7 +15,7 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Scale = [2, 2, 2],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -30,7 +30,7 @@ Cog =
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 		string SpriteSource = "562dd19d1b527d07:hOBOmAN",
 		bool RenderMask = false,
-		bool FlipX = false,
+		bool FlipX = true,
 		bool FlipY = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 0.75,
@@ -58,16 +58,13 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		string MeshName = "562dd0cfc28f98a0:Hobo",
 	},
-	HoboSpawn = 
-	{
-	},
 	EnemyController = 
 	{
 		float PaceSpeed = 5,
 		float ChaseSpeed = 5,
 		CogPath TargetObject = 
 		{
-			string Path = "",
+			string Path = ":/Player",
 			bool ErrorOnResolveToNull = false,
 			bool ErrorOnPathCantCompute = false,
 			bool ErrorOnDirectLinkFail = false,
@@ -96,5 +93,9 @@ Cog =
 	},
 	HoboLook = 
 	{
+	},
+	HoboHealth = 
+	{
+		float EnemyHealth = 80,
 	},
 },

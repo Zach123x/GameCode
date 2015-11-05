@@ -93,6 +93,9 @@ Level =
 		EnemySpawn = 
 		{
 		},
+		HoboSpawn = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -288,7 +291,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "561a8d9e78face62:Road",
+			string SpriteSource = "562c65df0158ce53:Road2",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,

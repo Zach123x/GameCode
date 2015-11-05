@@ -9,7 +9,10 @@ class EnemyAmount : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        Console.WriteLine("`this.EnemyAmmount`");
         if(Zero.Keyboard.KeyIsPressed(Keys.P))
+        {
         this.EnemyAmmount = 40;
+        }
     }
 }

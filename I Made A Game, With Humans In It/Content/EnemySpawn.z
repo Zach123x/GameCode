@@ -31,7 +31,7 @@ class EnemySpawn : ZilchComponent
         {
             spawnPosition = Real3(-60,0,1);
         }
-        if(this.Time == 50)
+        if(this.Time >= 50)
         {
         if(this. EnemyAmount <= 40)
         {
