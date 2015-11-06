@@ -9,8 +9,8 @@ class Score : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         this.Owner.SpriteText.Text = "Score:`this.Score`";
-        if(this. Score >= 400)
-        {
+        /*if(this. Score >= 400)
+            {
             var level2 = Level.Find("Medium");
             var level1 = Level.Find("Easy");
             var currentLevelName = this.Space.CurrentLevel;
@@ -18,6 +18,6 @@ class Score : ZilchComponent
             {
                 this.Space.LoadLevel(level2);
             }
-        }
+        }*/
     }
 }
