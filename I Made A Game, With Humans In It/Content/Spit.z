@@ -8,7 +8,7 @@ class Spit : ZilchComponent
     var Speed : Real = 35;
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(Zero.Mouse, Events.MouseDown, this.OnMouseDown);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     function OnLogicUpdate(event : UpdateEvent)
@@ -16,10 +16,8 @@ class Spit : ZilchComponent
         this.TimeSinceLastSpawn += event.Dt;
     }
     
-    function OnKeyDown(event : KeyboardEvent)
+    function OnMouseDown(event : ViewportMouseEvent)
     {
-        if(event.Key == Keys.Space)
-        {
             if(this.TimeSinceLastSpawn >= this.SpawnTime)
             {
             var screenPosition = Zero.Mouse.ScreenPosition;
@@ -31,7 +29,6 @@ class Spit : ZilchComponent
             var archetypeToSpawn = Archetype.Spit;
             var createdObject = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
             createdObject.RigidBody.Velocity = spawnDirection * this.Speed;
-        }
         }
     }
 }

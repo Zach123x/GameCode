@@ -19,7 +19,7 @@ class SpitDestroy : ZilchComponent
     function OnCollisionStarted(event:CollisionEvent)
     {
         var otherObject = event.OtherObject;
-        if(otherObject.Name != "Player" && otherObject.Name != "Road" && otherObject.Name != "UnGhost" && otherObject.Name != "Health")
+        if(otherObject.Name != "Player" && otherObject.Name != "Road" && otherObject.Name != "UnGhost" && otherObject.Name != "Health" && otherObject.Name != "Score")
         {
             this.Owner.Destroy();
         }

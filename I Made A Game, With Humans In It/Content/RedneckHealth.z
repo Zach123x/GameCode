@@ -14,6 +14,7 @@ class RedneckHealth : ZilchComponent
         {
             this.Owner.Destroy();
             this.Space.FindObjectByName("Score").Score.Score += 5;
+            this.Space.FindObjectByName("Road").EnemyDeath.EnemyDeath += 1;
         }
     }
 }

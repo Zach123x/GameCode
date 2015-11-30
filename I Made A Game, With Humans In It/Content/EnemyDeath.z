@@ -1,0 +1,17 @@
+class EnemyDeath : ZilchComponent
+{
+    [Property]var EnemyDeath: Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.EnemyDeath >= 150)
+        {
+            var levelMedium = Level.Find("Medium");
+            this.Space.LoadLevel(levelMedium);
+        }
+    }
+}

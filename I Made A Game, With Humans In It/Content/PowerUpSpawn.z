@@ -1,0 +1,39 @@
+class PowerUpSpawn : ZilchComponent
+{
+    var Timer : Real = 0;
+    var RandNum : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Timer += event.Dt;
+        if(this.Timer >= 30)
+        {
+        var randNumGen = new Random();
+        var randNum = randNumGen.DieRoll(4);
+        this.RandNum = randNum;
+        Console.WriteLine(randNum);
+        this.Timer = 0;
+        }
+        if(this.RandNum == 1 || Zero.Keyboard.KeyIsPressed(Keys.L))
+        {
+            var randSpawn = new Random();
+            var randSpawnLoc = randSpawn.Real3(-20,20);
+            var spawnPosition = randSpawnLoc;
+            spawnPosition.Z = 2;
+            this.Space.CreateAtPosition(Archetype.Find("HealthUp"), spawnPosition);
+        }
+        if(this.RandNum == 2)
+        {
+            var randSpawn = new Random();
+            var randSpawnLoc = randSpawn.Real3(-20,20);
+            var spawnPosition = randSpawnLoc;
+            spawnPosition.Z = 2;
+            this.Space.CreateAtPosition(Archetype.Find("Shield"), spawnPosition);
+        }
+        }
+    }
+
