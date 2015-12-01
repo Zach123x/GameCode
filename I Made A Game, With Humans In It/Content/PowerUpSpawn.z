@@ -26,7 +26,7 @@ class PowerUpSpawn : ZilchComponent
             spawnPosition.Z = 2;
             this.Space.CreateAtPosition(Archetype.Find("HealthUp"), spawnPosition);
         }
-        if(this.RandNum == 2)
+        if(this.RandNum == 2 || Zero.Keyboard.KeyIsPressed(Keys.N))
         {
             var randSpawn = new Random();
             var randSpawnLoc = randSpawn.Real3(-20,20);

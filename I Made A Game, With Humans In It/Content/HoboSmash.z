@@ -1,5 +1,6 @@
 class HoboSmash : ZilchComponent
 {
+    [Property]var Damage : Real = 5;
     var Time: Integer = 0;
     function Initialize(init : CogInitializer)
     {
@@ -21,10 +22,13 @@ class HoboSmash : ZilchComponent
         var otherObject = event.OtherObject;
         if(otherObject.Name == "Player")
         {
+        if(this.Space.FindObjectByName("Player").Shields.Shields == false)
+        {
         if(this.Time >= 20)
         {
-            this.Space.FindObjectByName("Player").Health.Health -= 5;
+            this.Space.FindObjectByName("Player").Health.Health -= this.Damage;
             this.Time = 0;
+        }
         }
         }
         if(otherObject.Name == "Spit")

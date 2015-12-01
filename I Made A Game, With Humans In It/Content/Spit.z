@@ -8,7 +8,7 @@ class Spit : ZilchComponent
     var Speed : Real = 35;
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(Zero.Mouse, Events.MouseDown, this.OnMouseDown);
+        Zero.Connect(this.LevelSettings, Events.MouseDown, this.OnMouseDown);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     function OnLogicUpdate(event : UpdateEvent)

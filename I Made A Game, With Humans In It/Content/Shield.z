@@ -1,15 +1,33 @@
 class Shield : ZilchComponent
 {
+    var HealthTrack : Real = 0;
+    var Player : Cog = null;
+    var Timer : Real = 0;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    function OnLogicUpdate(event: UpdateEvent)
+    {
+            this.Player = this.Space.FindObjectByName("Player");
+        if(this.Player.Shields.Shields == true)
+        {
+            this.Timer += event.Dt;
+            if(this.Timer <= 8)
+        {
+            this.Player.Shields.Shields = false;
+        }
+    }
     }
 
     function OnCollisionStarted(event : CollisionEvent)
     {
         if(event.OtherObject.Name == "Player")
         {
-            this.Space.FindObjectByName("Player");
+            this.Player.Shields.Shields = true;
+            this.Owner.Destroy();
+            this.Timer = 0;
         }
     }
 }
