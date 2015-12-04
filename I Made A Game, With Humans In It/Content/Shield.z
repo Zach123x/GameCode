@@ -3,6 +3,7 @@ class Shield : ZilchComponent
     var HealthTrack : Real = 0;
     var Player : Cog = null;
     var Timer : Real = 0;
+    var Countdown : Real = 15;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
@@ -10,15 +11,18 @@ class Shield : ZilchComponent
     }
     function OnLogicUpdate(event: UpdateEvent)
     {
-            this.Player = this.Space.FindObjectByName("Player");
+        this.Player = this.Space.FindObjectByName("Player");
         if(this.Player.Shields.Shields == true)
         {
             this.Timer += event.Dt;
-            if(this.Timer <= 8)
+            this.Countdown -= event.Dt;
+            this.Space.FindObjectByName("ShieldTimer").SpriteText.Text = " Shield Time:`this.Countdown`";
+        }
+            if(this.Timer >= 15)
         {
             this.Player.Shields.Shields = false;
+            this.Space.FindObjectByName("ShieldTimer").SpriteText.Text = "";
         }
-    }
     }
 
     function OnCollisionStarted(event : CollisionEvent)

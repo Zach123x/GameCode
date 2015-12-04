@@ -1,0 +1,18 @@
+class GoonAmmount : ZilchComponent
+{
+    [Property]
+    var EnemyAmmount: Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine("`this.EnemyAmmount`");
+        if(Zero.Keyboard.KeyIsPressed(Keys.P))
+        {
+        this.EnemyAmmount = 40;
+        }
+    }
+}
