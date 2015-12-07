@@ -1,0 +1,11 @@
+AudioContent = 
+{
+	SoundBuilder = 
+	{
+		string Name = "Heyayayaya_what_39_s_Goin_on-_Best_Quality",
+		uint64 ResourceId = 56725db12b96b80a,
+		bool Compressed = true,
+		uint Quality = 100,
+		SoundLoadType LoadType = Decompress,
+	},
+},

@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		string ProjectFolder = "C:\Users\17.zachery.white\Desktop\GitHub\GameCode\I Made A Game, With Humans In It",
+		string ProjectFolder = "C:\Users\17.zachery.white\Desktop\I Made A Game, With Humans In It",
 		uint ProjectEngineRevision = 12259,
 		bool AutoTakeProjectScreenshot = true,
 	},

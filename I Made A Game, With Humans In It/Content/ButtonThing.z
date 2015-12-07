@@ -1,0 +1,41 @@
+class ButtonThing : ZilchComponent
+{
+    var Time : Real = 0;
+    var Level1 : Level = Level.Find("Easy");
+    var ColorSelect : Real4 = Real4(0.6, 0.6, 0.6, 1.0);
+    var ColorUnselect : Real4 = Real4(1.0, 1.0, 1.0, 1.0);
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Time += event.Dt;
+        if(this.Time > 1337)
+        {
+        this.Space.LoadLevel(this.Level1);
+    }
+    var screenPos = Zero.Mouse.ScreenPosition;
+    var mousePos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(screenPos, 0.0);
+    Console.WriteLine(mousePos);
+    if(mousePos.X < 5.9 &&
+        mousePos.X > -5.9 &&
+        mousePos.Y > -1.15 &&
+        mousePos.Y < 1.3)
+    {
+this.Owner.Sprite.Color = this.ColorSelect;
+        Console.WriteLine(mousePos);
+        if(Zero.Mouse.IsButtonDown(MouseButtons.Left))
+        {
+            this.Owner.SoundEmitter.Stop();
+            this.Time = 1336.5;
+        }
+    }
+    else 
+    {
+        this.Owner.Sprite.Color = this.ColorUnselect;
+    }
+    
+    }
+}
