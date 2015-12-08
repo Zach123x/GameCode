@@ -9,11 +9,10 @@ class GoonSpawn : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.EnemyAmount = this.Space.FindObjectByName("Road").EnemyAmount.EnemyAmmount;
         var randNumGen = new Random();
         var randNum = randNumGen.DieRoll(4);
         var spawnPosition = Real3(0,0,0);
-        this.Time += 1;
+        this.Time += event.Dt;
         
         if(randNum == 1)
         {
@@ -31,15 +30,11 @@ class GoonSpawn : ZilchComponent
         {
             spawnPosition = Real3(-60,0,1);
         }
-        if(this.Time >= 50)
-        {
-        if(this. EnemyAmount <= 40)
+        if(this.Time >= 2)
         {
             var archetypeToSpawn = Archetype.Find("Goon");
-            var createdEnemy = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
-            this.Space.FindObjectByName("Goon").GoonAmmount.EnemyAmmount += 1;
+            var goon = this.Space.CreateAtPosition(archetypeToSpawn, spawnPosition);
             this.Time = 0;
         }
-    }
     }
 }

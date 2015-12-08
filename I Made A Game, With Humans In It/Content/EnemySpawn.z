@@ -9,7 +9,6 @@ class EnemySpawn : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.EnemyAmount = this.Space.FindObjectByName("Goon").GoonAmmount.EnemyAmmount;
         var randNumGen = new Random();
         var randNum = randNumGen.DieRoll(4);
         var spawnPosition = Real3(0,0,0);

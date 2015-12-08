@@ -8,9 +8,13 @@ Cog =
 	{
 		string Name = "Player",
 	},
+	Archetyped = 
+	{
+		string Name = "56763ae3204f422f:Player",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [0.222203553, -0.111103743, 1],
 		Vec3 Scale = [2, 2, 5],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -66,18 +70,6 @@ Cog =
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		string MeshName = "563054152b16e5d9:Zombie",
-	},
-	SoundEmitter = 
-	{
-		float Volume = 1,
-		float Pitch = 0,
-		bool Positional = true,
-		int Version = 1,
-	},
-	SimpleSound = 
-	{
-		bool StartPlaying = true,
-		string CueName = "562b32249bef18d3:CantinaMusic",
 	},
 	Health = 
 	{

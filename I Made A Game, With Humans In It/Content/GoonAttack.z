@@ -1,0 +1,39 @@
+class GoonAttack : ZilchComponent
+{
+    [Property]var Damage : Real = 5;
+    var Time: Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted,     this.OnCollisionStarted);
+    }
+
+    function OnLogicUpdate(event: UpdateEvent)
+    {
+        this.Time += event.Dt;
+        if(this.Time == 1)
+        {
+            Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        var otherObject = event.OtherObject;
+        if(otherObject.Name == "Player")
+        {
+        if(this.Space.FindObjectByName("Player").Shields.Shields == false)
+        {
+        if(this.Time >= 1)
+        {
+            this.Space.FindObjectByName("Player").Health.Health -= this.Damage;
+            this.Time = 0;
+        }
+        }
+        }
+        if(otherObject.Name == "Spit")
+        {
+            this.Owner.GoonHealth.GoonHealth -= 10;
+        }
+    }
+}

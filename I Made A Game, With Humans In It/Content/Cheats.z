@@ -1,7 +1,5 @@
-class EnemyDeath : ZilchComponent
+class Cheats : ZilchComponent
 {
-    [Property]var EnemyDeath: Real = 0;
-    var Level2 : Level = Level.Find("Goons");
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -9,9 +7,10 @@ class EnemyDeath : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.EnemyDeath >= 120)
+        if(Zero.Keyboard.KeyIsPressed(Keys.E))
         {
-            this.Space.LoadLevel(this.Level2);
+            var goons = Level.Find("Goons");
+            this.Space.LoadLevel(goons);
         }
     }
 }

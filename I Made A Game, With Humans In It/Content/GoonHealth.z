@@ -1,0 +1,19 @@
+class GoonHealth : ZilchComponent
+{
+    [Property] 
+    var GoonHealth: Real = 100;
+    var Score: Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Owner.GoonHealth.GoonHealth <= 0)
+        {
+            this.Owner.Destroy();
+            this.Space.FindObjectByName("Score").Score.Score += 8;
+        }
+    }
+}

@@ -254,6 +254,9 @@ Level =
 		{
 			float EnemyDeath = 0,
 		},
+		Cheats = 
+		{
+		},
 	},
 	Cog = 
 	{

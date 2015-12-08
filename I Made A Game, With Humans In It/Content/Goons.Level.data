@@ -90,7 +90,7 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
-		EnemySpawn = 
+		GoonSpawn = 
 		{
 		},
 	},
@@ -205,6 +205,7 @@ Level =
 		},
 		GoonAmmount = 
 		{
+			int EnemyAmmount = 0,
 		},
 	},
 	Cog = 
@@ -495,19 +496,12 @@ Level =
 		{
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "56763ae3204f422f:Player",
 		LinkId = 
 		{
 			uint Id = 10,
-		},
-		Named = 
-		{
-			string Name = "Player",
-		},
-		Archetyped = 
-		{
-			string Name = "56763ae3204f422f:Player",
 		},
 		Transform = 
 		{
@@ -515,76 +509,108 @@ Level =
 			Vec3 Scale = [2, 2, 5],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Sprite = 
+		Named = 
+		{
+			string Name = "Player",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 11,
+		},
+		Named = 
+		{
+			string Name = "Health",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.482156754, -21.505806, 0],
+			Vec3 Scale = [5, 5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0.0500001907, 0, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "561bf0b3861b81c0:Zombie One Working",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 30,
+			string Text = "Sprite Text...",
+			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+		HeathOutput = 
+		{
 		},
 		RigidBody = 
 		{
-			bool Static = false,
+			bool Static = true,
 			bool Asleep = false,
 			bool Kinematic = false,
 			bool RotationLocked = false,
 			bool Mode2D = true,
 			bool AllowSleep = true,
-			bool Inherit2DMode = false,
+			bool Inherit2DMode = true,
 			Vec3 Velocity = [0, 0, 0],
 			Vec3 AngularVelocity = [0, 0, 0],
 		},
-		Aim = 
+	},
+	Cog = 
+	{
+		LinkId = 
 		{
+			uint Id = 12,
 		},
-		Orientation = 
+		Named = 
 		{
-			Vec3 GlobalUp = [0, 0, 1],
-			Vec3 UpVector = [0, 0, 1],
-			Vec3 ForwardVector = [1, 0, 0],
-			OrientationBases DefaultBases = ForwardXUpZ,
+			string Name = "Score",
 		},
-		ZombieMovement = 
+		Transform = 
 		{
+			Vec3 Translation = [-20.9476089, 22.4350147, 0],
+			Vec3 Scale = [5, 5, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
-		MultiConvexMeshCollider = 
+		SpriteText = 
 		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			string MeshName = "563054152b16e5d9:Zombie",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.0199995041, 0, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "4e7bac697bec55c5:Verdana",
+			uint FontSize = 30,
+			string Text = "Sprite Text...",
+			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
 		},
-		Health = 
+		RigidBody = 
 		{
-			float Health = 100,
+			bool Static = true,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
 		},
-		Spit = 
+		Score = 
 		{
-			float SpawnTime = 1,
-		},
-		PowerUpSpawn = 
-		{
-		},
-		Shields = 
-		{
-			bool Shields = false,
-		},
-		Hierarchy = 
-		{
+			int Score = 0,
 		},
 	},
 },

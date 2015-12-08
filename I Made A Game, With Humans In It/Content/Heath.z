@@ -1,6 +1,7 @@
 class Health : ZilchComponent
 {
     [Property]var Health : Real = 100;
+    var Level3 : Level = Level.Find("Menu");
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -10,7 +11,14 @@ class Health : ZilchComponent
     {
         if(this.Owner.Health.Health <= 0)
         {
+            if(this.Space.CurrentLevel.Name == "Easy")
+            {
             this.Space.ReloadLevel();
+            }
+            else{
+                
+                this.Space.LoadLevel(this.Level3);
+            }
         }
     }
 }

@@ -13,26 +13,27 @@ class PowerUpSpawn : ZilchComponent
         if(this.Timer >= 30)
         {
         var randNumGen = new Random();
-        var randNum = randNumGen.DieRoll(4);
+        var randNum = randNumGen.DieRoll(2);
         this.RandNum = randNum;
         Console.WriteLine(randNum);
-        this.Timer = 0;
         }
-        if(this.RandNum == 1 || Zero.Keyboard.KeyIsPressed(Keys.L))
+        if(this.RandNum == 1 && this.Timer >= 30|| Zero.Keyboard.KeyIsPressed(Keys.L)&& this.Timer >= 30)
         {
             var randSpawn = new Random();
             var randSpawnLoc = randSpawn.Real3(-20,20);
             var spawnPosition = randSpawnLoc;
             spawnPosition.Z = 2;
             this.Space.CreateAtPosition(Archetype.Find("HealthUp"), spawnPosition);
+            this.Timer = 0;
         }
-        if(this.RandNum == 2 || Zero.Keyboard.KeyIsPressed(Keys.N))
+        if(this.RandNum == 2 && this.Timer >= 30|| Zero.Keyboard.KeyIsPressed(Keys.N)&& this.Timer >= 30)
         {
             var randSpawn = new Random();
             var randSpawnLoc = randSpawn.Real3(-20,20);
             var spawnPosition = randSpawnLoc;
             spawnPosition.Z = 2;
             this.Space.CreateAtPosition(Archetype.Find("Shield"), spawnPosition);
+            this.Timer = 0;
         }
         }
     }
